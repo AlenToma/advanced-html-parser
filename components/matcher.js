@@ -35,7 +35,7 @@ function getParent(node) {
 }
 
 function getText(node) {
-    return node.text;
+    return node ? node.text() : "";
 }
 
 function removeSubsets(nodes) {
