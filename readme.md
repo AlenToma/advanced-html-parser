@@ -20,8 +20,19 @@ const attr = doc.documentElement.querySelector("span").closest(".test").getAttri
 ```
 
 ## CSS3 Selector support
-The library uses [css-select](https://github.com/fb55/css-select) and it support everything css-select uses
+The library uses `css-select` and it support all advanced selectors `css-select` support like 
+`#info > .description > .small strong:first-child span` and more.
+See [css-select](https://github.com/fb55/css-select) for more info.
 
+
+## Speed up the parsing
+The libray is very fast, and if you want to use it to scrap some data from website. then using the settings below may speed the parsing.
+
+```js
+    const doc = IDOMParser.parse(page, {
+        ignoreTags: ["script", "style", "head"] // This will remove all those tags before begining to parse the string.
+    });
+```
 
 ## Node Class
 ```ts
@@ -126,4 +137,26 @@ export interface Document {
     readonly createElementNS: (namespaceURI: string, qualifiedName: string) => Element;
     readonly createAttributeNS: (namespaceURI: string, qualifiedName: string) => Attribute;
 }
+```
+
+## Parser Options
+
+```ts
+
+export interface Options {
+    xmlns?: { xml?: string };
+    /*
+        default text/html
+    */
+    mimeType?: string;
+
+    /*
+
+        Ignore parsing tags eg script, style etc
+        This is for performance issue, will use RegExp to clean the html string before parsing it.
+
+    */
+    ignoreTags?:string[];
+}
+
 ```

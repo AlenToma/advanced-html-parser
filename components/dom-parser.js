@@ -12,6 +12,12 @@ DOMParser.prototype.parseFromString = function (source) {
 	var defaultNSMap = options.xmlns || {};
 	var mimeType = options.mimeType || 'text/html';
 	var entityMap = options.entityMap || {};
+	if (options.ignoreTags && options.ignoreTags.length>0){
+		var expression = `<(${options.ignoreTags.join("|")})(.*?)>(.|\n)*?<\/(${options.ignoreTags.join("|")})>`;
+		console.log("Found ignoreTags executing", expression)
+		source = source.replace(new RegExp(expression, "gmi"), "");
+	}
+
 	if (typeof require == 'function') {
 		const enMap = require('./entity-map').EntityMap;
 		entityMap = Object.assign(enMap, entityMap);

@@ -22,6 +22,7 @@ describe("Reading text", function () {
 });
 
 
+
 describe("Reading clone", function () {
     const doc = IDOMParser.parse(`<div>test</div>`);
     console.log(doc.documentElement.cloneNode(true).outerHTML)

@@ -4,6 +4,14 @@ export interface Options {
         default text/html
     */
     mimeType?: string;
+
+    /*
+
+        Ignore parsing tags eg script, style etc
+        This is for performance issue, will use RegExp to clean the html string before parsing it
+
+    */
+    ignoreTags?:string[];
 }
 
 
@@ -66,9 +74,8 @@ export class ClassList {
     values: () => string[];
     has: (c: string) => boolean;
     contains: (c: string) => boolean;
-    replace: (k1, k2) => void;
+    replace: (k1: string, k2: string) => void;
     toString: () => string;
-
 }
 
 export interface Element extends Node {
