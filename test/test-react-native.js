@@ -8,7 +8,7 @@ import React, {
 } from 'react-native'
 
 
-var DomParser = require('react-native-html-parser').DOMParser
+var DomParser = require('advanced-html-parser')
 class TestReactNativeHtmlParser extends Component {
     componentDidMount() {
         let html = `<html>
@@ -24,11 +24,11 @@ class TestReactNativeHtmlParser extends Component {
                             </div>
                         </body>
                     </html>`
-        let doc = new DomParser().parseFromString(html,'text/html')
+        let doc = new DomParser().parse(html)
         
-        console.log(doc.querySelect('#b .inA'))
+        console.log(doc.querySelector('#b .inA'))
         console.log(doc.getElementsByTagName('a'))
-        console.log(doc.querySelect('#b a[href="example.org"]'))
+        console.log(doc.querySelector('#b a[href="example.org"]'))
     }
     
 }
