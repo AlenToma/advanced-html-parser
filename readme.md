@@ -157,6 +157,12 @@ export interface Options {
 
     */
     ignoreTags?:string[];
+
+      /*
+        override the errorHandler. 
+
+    */
+    errorHandler?: ErrorHandler;
 }
 
 ```

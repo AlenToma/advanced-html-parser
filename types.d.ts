@@ -6,14 +6,25 @@ export interface Options {
     mimeType?: string;
 
     /*
-
+        
         Ignore parsing tags eg script, style etc
         This is for performance issue, will use RegExp to clean the html string before parsing it
 
     */
-    ignoreTags?:string[];
+    ignoreTags?: string[];
+
+    /*
+        override the errorHandler. 
+
+    */
+    errorHandler?: ErrorHandler;
 }
 
+export interface ErrorHandler {
+    warning: (w: string) => void;
+    error: (e: string) => void;
+    fatalError: (e: string) => void;
+}
 
 export interface Node {
     readonly nodeName: string;
