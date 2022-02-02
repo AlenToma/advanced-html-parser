@@ -27,7 +27,7 @@ function getName(elem) {
 
 function getChildren(node) {
 
-    return node && node.childNodes && node.childNodes.length > 0 ? node.childNodes : null;
+    return node && node.childNodes && node.childNodes.length > 0 ? Array.from(node.childNodes) : [];
 }
 
 function getParent(node) {

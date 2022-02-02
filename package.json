@@ -1,6 +1,6 @@
 {
   "name": "advanced-html-parser",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Can use html parser in react-native, titanium, and anywhere. This is based on [xmldom](https://github.com/jindw/xmldom).",
   "main": "index.js",
   "homepage": "https://github.com/AlenToma/advanced-html-parser",
