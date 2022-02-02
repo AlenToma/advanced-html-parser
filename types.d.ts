@@ -58,16 +58,16 @@ export interface Attribute extends Node {
 
 }
 
-export class ClassList{
-    toggle:(k: string)=> void;
-    remove:(c:string)=> void;
-    add:(c: string)=> void;
-    length:()=> number;
-    values:()=> string[];
-    has:(c:string)=> boolean;
-    contains:(c:string) => boolean;
-    replace: (k1, k2)=> void;
-    toString:()=> string;
+export class ClassList {
+    toggle: (k: string) => void;
+    remove: (c: string) => void;
+    add: (c: string) => void;
+    length: () => number;
+    values: () => string[];
+    has: (c: string) => boolean;
+    contains: (c: string) => boolean;
+    replace: (k1, k2) => void;
+    toString: () => string;
 
 }
 
@@ -114,24 +114,24 @@ export interface Text extends Node {
 
 
 export interface Document {
-    nodeName: string;
-    nodeType: number;
-    doctype: string | null;
-    documentElement: Element;
-    insertBefore: (newChild: Node, refChild: Node) => Element;
-    removeChild: (child: Node) => void;
-    importNode: (importedNode: Node, deep: number) => Element;
-    getElementById: (id: string) => Element | null;
-    getElementByClassName: (className: string) => Element | null;
-    getElementByAttribute: (attibute: string) => Element | null;
-    createElement: (tagName: string) => Element;
-    createDocumentFragment: () => DocumentFragment;
-    createTextNode: (data: string) => Text;
-    createComment: (data: string) => Node;
-    createCDATASection: (data: string) => Node;
-    createProcessingInstruction: (target: string, data: string) => Node;
-    createAttribute: (name: string) => Attribute;
-    createEntityReference: (name: string) => Attribute;
-    createElementNS: (namespaceURI: string, qualifiedName: string) => Element;
-    createAttributeNS: (namespaceURI: string, qualifiedName: string) => Attribute;
+    readonly nodeName: string;
+    readonly nodeType: number;
+    readonly doctype: string | null;
+    readonly documentElement: Element;
+    readonly insertBefore: (newChild: Node, refChild: Node) => Element;
+    readonly removeChild: (child: Node) => void;
+    readonly importNode: (importedNode: Node, deep: number) => Element;
+    readonly getElementById: (id: string) => Element | null;
+    readonly getElementByClassName: (className: string) => Element | null;
+    readonly getElementByAttribute: (attibute: string) => Element | null;
+    readonly createElement: (tagName: string) => Element;
+    readonly createDocumentFragment: () => DocumentFragment;
+    readonly createTextNode: (data: string) => Text;
+    readonly createComment: (data: string) => Node;
+    readonly createCDATASection: (data: string) => Node;
+    readonly createProcessingInstruction: (target: string, data: string) => Node;
+    readonly createAttribute: (name: string) => Attribute;
+    readonly createEntityReference: (name: string) => Attribute;
+    readonly createElementNS: (namespaceURI: string, qualifiedName: string) => Element;
+    readonly createAttributeNS: (namespaceURI: string, qualifiedName: string) => Attribute;
 }
