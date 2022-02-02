@@ -1,4 +1,4 @@
-# react-native-html-parser
+# advanced-html-parser
 
 Can use html parser in react-native, titanium, and anywhere. This is based on [xmldom](https://github.com/jindw/xmldom).
 
