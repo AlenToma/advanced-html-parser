@@ -499,10 +499,6 @@ Node.prototype = {
 		return prefix == null;
 	},
 
-	outerHTML: function () {
-		return this.toString();
-	},
-
 
 	closest: function (selector) {
 
@@ -1450,6 +1446,15 @@ try {
 
 				return this._cl;
 			},
+		});
+
+		Object.defineProperty(Node.prototype, "outerHTML", {
+			get: function(){
+				return this.toString();
+			},
+			set: function(value){
+				throw "outerHTML si ReadOnly";
+			}
 		})
 
 		Object.defineProperty(Node.prototype, "innerHTML", {

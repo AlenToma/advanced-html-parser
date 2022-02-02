@@ -49,7 +49,7 @@ export interface Node {
     readonly remove: () => void;
     readonly appendChild: (child: Node) => void;
     readonly hasChildNodes: () => boolean;
-    readonly cloneNode: () => Node;
+    readonly cloneNode: (deep: boolean) => Node;
     readonly normalize: () => void;
     readonly isSupported: (feature: number, version: string) => boolean;
     readonly hasAttributes: () => boolean;
@@ -77,8 +77,8 @@ export interface Node {
 ```ts
 export interface Element extends Node {
     readonly hasAttribute: (attrName: string) => boolean;
-    readonly getAttribute: (attrName: string) => Attribute;
-    readonly getAttributeNode: (attrName: string) => any;
+    readonly getAttribute: (attrName: string) => string;
+    readonly getAttributeNode: (attrName: string) => Attribute;
     readonly setAttribute: (name: string, value: string) => void;
     readonly removeAttribute: (name: string) => any;
     readonly setAttributeNode: (newAttr: string) => Attribute;

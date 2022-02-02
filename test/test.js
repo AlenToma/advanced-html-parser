@@ -19,6 +19,13 @@ describe("Reading text", function(){
 });
 
 
+describe("Reading clone", function(){
+    const doc = IDOMParser.parse(`<div>test</div>`);
+    console.log(doc.documentElement.cloneNode(true).outerHTML)
+    doc.documentElement.cloneNode(true).text().should.eql("test");
+});
+
+
 describe("Reading innerText", function(){
     const doc = IDOMParser.parse(`<div>test</div>`);
 
@@ -34,7 +41,7 @@ describe("Reading textContent", function(){
 describe("Reading outerHTML", function(){
     const doc = IDOMParser.parse(`<div>test</div>`);
 
-    doc.documentElement.outerHTML().should.eql(`<div>test</div>`);
+    doc.documentElement.outerHTML.should.eql(`<div>test</div>`);
 });
 
 describe("Reading innerHTML", function(){
