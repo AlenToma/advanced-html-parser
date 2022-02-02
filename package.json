@@ -1,0 +1,35 @@
+{
+  "name": "advanced-html-parser",
+  "version": "1.0.0",
+  "description": "Can use html parser in react-native, titanium, and anywhere. This is based on [xmldom](https://github.com/jindw/xmldom).",
+  "main": "index.js",
+  "homepage": "https://github.com/AlenToma/advanced-html-parser",
+  "author": {
+    "name": "Alen Toma",
+    "email": "alen.toma@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dom",
+    "xml",
+    "html",
+    "parser",
+    "javascript",
+    "DOMParser",
+    "XMLSerializer",
+    "ReactNative",
+    "titanium"
+  ],
+  "scripts": {
+    "test": "node test/test.js",
+    "mocha": "mocha test/test.js"
+  },
+  "dependencies": {
+    "css-select": "^4.2.1",
+    "he": "^1.2.0"
+  },
+  "devDependencies": {
+    "should": "^13.2.3",
+    "mocha": "^9.2.0"
+  }
+}
