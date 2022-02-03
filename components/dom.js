@@ -1190,8 +1190,9 @@ Node.prototype.toString = function (attributeSorter) {
 
 
 function getText(node) {
-	if (node.rowText !== undefined)
-		return;
+	// to do reset this when there is changes to the node.
+	//	if (node.rowText !== undefined)
+	//	return;
 	var arr = [];
 	rowText(node, arr);
 	node.rowText = arr.map(x => x.rowText).join("");
@@ -1223,8 +1224,6 @@ function rowText(node, ref) {
 				}
 			}
 	}
-
-
 }
 
 /**
@@ -1449,10 +1448,10 @@ try {
 		});
 
 		Object.defineProperty(Node.prototype, "outerHTML", {
-			get: function(){
+			get: function () {
 				return this.toString();
 			},
-			set: function(value){
+			set: function (value) {
 				throw "outerHTML si ReadOnly";
 			}
 		})
