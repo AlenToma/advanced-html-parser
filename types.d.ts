@@ -14,6 +14,12 @@ export interface Options {
     ignoreTags?: string[];
 
     /*
+        Parse only the body.
+        this will extract the <body> from the html string and parse it only
+    */
+    onlyBody?: boolean;
+
+    /*
         override the errorHandler. 
 
     */

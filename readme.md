@@ -1,7 +1,6 @@
 # advanced-html-parser
 
 Can use html parser in react-native, titanium, and anywhere. This is based on [xmldom](https://github.com/jindw/xmldom).
-
 This library is based on [react-native-html-parser](https://github.com/g6ling/react-native-html-parser) where it has much more features and it can decode almost all charecters set, also 
 added support to CSS3 selectors and typescript.
 
@@ -31,6 +30,7 @@ The libray is very fast, and if you want to use it to scrap some data from websi
 ```js
     const doc = IDOMParser.parse(page, {
         ignoreTags: ["script", "style", "head"] // This will remove all those tags before begining to parse the string.
+        onlyBody: true
     });
 ```
 
@@ -157,6 +157,12 @@ export interface Options {
 
     */
     ignoreTags?:string[];
+
+    /*
+        Parse only the body.
+        this will extract the <body> from the html string and parse it only
+    */
+    onlyBody?: boolean;
 
       /*
         override the errorHandler. 

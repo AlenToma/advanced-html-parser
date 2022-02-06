@@ -18,14 +18,13 @@ describe('HTML Parser', function () {
 describe("Reading text", function () {
     const doc = IDOMParser.parse(page)
 
-    console.log(doc.documentElement.querySelector(".col-info-desc > .desc > .small strong:first-child span"))
+    doc.documentElement.querySelector(".col-info-desc > .desc > .small strong:first-child span").text().should.eql("8.3");
 });
 
 
 
 describe("Reading clone", function () {
     const doc = IDOMParser.parse(`<div>test</div>`);
-    console.log(doc.documentElement.cloneNode(true).outerHTML)
     doc.documentElement.cloneNode(true).text().should.eql("test");
 });
 

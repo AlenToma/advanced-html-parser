@@ -3190,10 +3190,11 @@ const textParser = require("he");
 describe("speed test", function () {
     console.time('Function #1');
     const doc = IDOMParser.parse(page, {
-        ignoreTags: ["script", "style", "head"]
+        ignoreTags: ["script", "style"],
+		onlyBody:true
     })
     console.timeEnd('Function #1')
+	//console.log(doc.documentElement.outerHTML)
     console.log(doc.documentElement.querySelector(".seriesimg img").getAttribute("src"))
-
     
 });

@@ -1,4 +1,23 @@
+const enMap = {};
+if (typeof require == 'function') {
+	const enMap = require('./entity-map').EntityMap;
+}
+
 function DOMParser(options) {
+	if (String.prototype.substr === undefined)
+		String.prototype.substr = function (start, length) {
+			var str = this.toString();
+			if (length === undefined || length > str.length)
+				length = str.length;
+			if (length < 0)
+				length = 0;
+			if (start < 0)
+				start = str.length + start;
+			if (start < 0)
+				start = 0;
+			return str.substring(start, length + start)
+
+		}
 	this.options = options || { locator: {} };
 
 }
@@ -12,16 +31,23 @@ DOMParser.prototype.parseFromString = function (source) {
 	var defaultNSMap = options.xmlns || {};
 	var mimeType = options.mimeType || 'text/html';
 	var entityMap = options.entityMap || {};
-	if (options.ignoreTags && options.ignoreTags.length>0){
-		var expression = `<(${options.ignoreTags.join("|")})(.*?)>(.|\n)*?<\/(${options.ignoreTags.join("|")})>`;
+
+	if (options.onlyBody === true){
+		var expression = `<(body)(.*?)>(.|\n)*?<\/(body)>`;
+		console.log("Found onlyBody executing", expression)
+		var body = new RegExp(expression, "gmi").exec(source);
+		if (body && body.length != undefined && body.length > 0)
+			source = body[0];
+	}
+
+	if (options.ignoreTags && options.ignoreTags.length > 0) {
+		var expression = `(<(${options.ignoreTags.join("|")})(.*?)>(.|\n)*?<\/(${options.ignoreTags.join("|")})>)|(<(${options.ignoreTags.join("|")})(.*?)\/>)`;
 		console.log("Found ignoreTags executing", expression)
 		source = source.replace(new RegExp(expression, "gmi"), "");
 	}
 
-	if (typeof require == 'function') {
-		const enMap = require('./entity-map').EntityMap;
-		entityMap = Object.assign(enMap, entityMap);
-	}
+	entityMap = Object.assign(enMap, entityMap);
+
 	if (locator) {
 		domBuilder.setDocumentLocator(locator)
 	}
